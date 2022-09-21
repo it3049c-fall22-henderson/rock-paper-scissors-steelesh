@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 // Elements
 const welcomeScreen = document.getElementById(`welcome-screen`);
 const gameScreen = document.getElementById(`game-screen`);
