@@ -1,11 +1,11 @@
 class RockPaperScissors {
   constructor(username) {
     this.username = username;
-    (this.score = {
+    this.score = {
       user: 0,
       cpu: 0,
-    }),
-    (this.gameHistoryLog = []);
+    },
+    this.gameHistoryLog = [];
   }
 
   /**

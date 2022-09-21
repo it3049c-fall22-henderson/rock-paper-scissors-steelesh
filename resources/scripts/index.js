@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 // Elements
 const welcomeScreen = document.getElementById(`welcome-screen`);
 const gameScreen = document.getElementById(`game-screen`);
@@ -10,6 +11,7 @@ const gameHistoryParagraph = document.getElementById(`game-history`);
 
 // instantiate the game object from the `RockPaperScissors` class.
 let game;
+
 // hide game screen
 gameScreen.classList.add(`d-none`);
 
@@ -25,16 +27,18 @@ function updateGameHistoryUI(){
 
 // start-game-button EventListener
 startGameButton.addEventListener(`click`, function () {
-  const username = userName.value;
-  game = new RockPaperScissors(userName);
   // Complete
+  const username = userName.value;
+  game = new RockPaperScissors(username);
   welcomeScreen.classList.add(`d-none`);
   gameScreen.classList.remove(`d-none`);
 });
 
 // go-button EventListener
 goButton.addEventListener(`click`, function () {
-  
+  game.play(userSelection.value);
+  updateScoreTallyUI();
+  updateGameHistoryUI();
 });
 
 // If you're doing the extra-credit, uncomment the below: reset-game-button
