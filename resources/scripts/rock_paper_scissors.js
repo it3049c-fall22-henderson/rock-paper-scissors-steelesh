@@ -1,11 +1,11 @@
 class RockPaperScissors {
   constructor(username) {
     this.username = username;
-    this.score = {
+    (this.score = {
       user: 0,
       cpu: 0,
-    },
-    this.gameHistoryLog = [];
+    }),
+    (this.gameHistoryLog = []);
   }
 
   /**
@@ -15,7 +15,7 @@ class RockPaperScissors {
   generateCPUResponse() {
     const acceptedValues = [ `rock`, `paper`, `scissors` ];
     let randVal =
-      acceptedValues[Math.floor(Math.random) * acceptedValues.length];
+      acceptedValues[Math.floor(Math.random() * acceptedValues.length)];
     return randVal;
   }
   /**
@@ -34,19 +34,15 @@ class RockPaperScissors {
    * @param {string} cpuSelection computer selection. Can only be one of the following values [`rock`, `paper`, `scissors`]
    */
   determineWinner(userSelection, cpuSelection) {
-    if (userSelection === cpuSelection) {
+    if (userSelection == cpuSelection) {
       return `tie`;
-    }
-    else if(userSelection === `rock` && cpuSelection === `scissors`){
+    } else if (userSelection == `rock` && cpuSelection == `scissors`) {
       return `win`;
-    }
-    else if(userSelection === `paper` && cpuSelection === `rock`){
+    } else if (userSelection == `paper` && cpuSelection == `rock`) {
       return `win`;
-    }
-    else if(userSelection === `scissors` && cpuSelection === `paper`){
+    } else if (userSelection == `scissors` && cpuSelection == `paper`) {
       return `win`;
-    }
-    else{
+    } else {
       return `lose`;
     }
   }
@@ -58,12 +54,20 @@ class RockPaperScissors {
   play(userSelection) {
     let cpuSelection = this.generateCPUResponse();
     if (this.determineWinner(userSelection, cpuSelection) === `win`) {
-      this.gameHistoryLog.push(`${this.username} selected ${userSelection}, CPU selected ${cpuSelection}: ${this.username} wins!`);
+      this.gameHistoryLog
+        .push(
+          `${this.username} selected ${userSelection}, CPU selected ${cpuSelection}: ${this.username} wins!`
+        );
       this.score.user++;
-    }
-    else if(this.determineWinner(userSelection, cpuSelection) === `lose`){
-      this.gameHistoryLog.push(`${this.username} selected ${userSelection}, CPU selected ${cpuSelection}: CPU wins!`);
+    } else if (this.determineWinner(userSelection, cpuSelection) === `lose`) {
+      this.gameHistoryLog.push(
+        `${this.username} selected ${userSelection}, CPU selected ${cpuSelection}: CPU wins!`
+      );
       this.score.cpu++;
+    }
+    else{
+      this.gameHistoryLog.push(
+        `${this.username} selected ${userSelection}, CPU selected ${cpuSelection}: Tie game!`);
     }
   }
 }

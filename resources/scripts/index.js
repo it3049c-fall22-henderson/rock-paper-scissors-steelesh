@@ -15,13 +15,13 @@ let game;
 gameScreen.classList.add(`d-none`);
 
 // updateScoreTallyUI
-function updateScoreTallyUI(){
+function updateScoreTallyUI() {
   scoreParagraph.textContent = `${game.username}: ${game.score.user} v CPU: ${game.score.cpu}`;
 }
 
 // updateGameHistoryUI
-function updateGameHistoryUI(){
-  gameHistoryParagraph.textContent = game.gameHistoryLog;
+function updateGameHistoryUI() {
+  gameHistoryParagraph.innerHTML = game.gameHistoryLog.join("<br /><br />");
 }
 
 // start-game-button EventListener
@@ -41,6 +41,6 @@ goButton.addEventListener(`click`, function () {
 });
 
 // If you're doing the extra-credit, uncomment the below: reset-game-button
-// resetGameButton.addEventListener(`click`, function(e) { 
-  
+// resetGameButton.addEventListener(`click`, function(e) {
+
 // });
