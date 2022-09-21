@@ -10,13 +10,12 @@ const gameHistoryParagraph = document.getElementById(`game-history`);
 
 // instantiate the game object from the `RockPaperScissors` class.
 let game;
-
 // hide game screen
 gameScreen.classList.add(`d-none`);
 
 // updateScoreTallyUI
 function updateScoreTallyUI(){
-
+  scoreParagraph.textContent = `${game.username}: ${game.score.user} v CPU: ${game.score.cpu}`;
 }
 
 // updateGameHistoryUI
@@ -26,9 +25,11 @@ function updateGameHistoryUI(){
 
 // start-game-button EventListener
 startGameButton.addEventListener(`click`, function () {
-  const username = 
+  const username = userName.value;
   game = new RockPaperScissors(userName);
   // Complete
+  welcomeScreen.classList.add(`d-none`);
+  gameScreen.classList.remove(`d-none`);
 });
 
 // go-button EventListener
